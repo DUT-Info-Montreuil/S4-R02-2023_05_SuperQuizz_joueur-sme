@@ -1,5 +1,7 @@
 package fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.entities.dto;
 
+import java.util.Objects;
+
 public class JoueurDTO {
 	
 	private String prénom;
@@ -37,6 +39,19 @@ public class JoueurDTO {
 	public void setCentresDintérêt(String centresDintérêt) {
 		this.centresDintérêt = centresDintérêt;
 	}
-	
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(pseudo);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		JoueurDTO other = (JoueurDTO) obj;
+		return Objects.equals(pseudo, other.pseudo);
+	}	
 }
