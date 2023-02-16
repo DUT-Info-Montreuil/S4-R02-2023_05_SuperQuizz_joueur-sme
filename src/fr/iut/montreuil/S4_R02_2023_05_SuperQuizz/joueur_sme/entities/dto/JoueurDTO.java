@@ -53,5 +53,12 @@ public class JoueurDTO {
 			return false;
 		JoueurDTO other = (JoueurDTO) obj;
 		return Objects.equals(pseudo, other.pseudo);
+	}
+	@Override
+	public String toString() {
+		return "Prénom : " + prénom + ", Pseudo : " + pseudo + ", Année de naissance : " + annéeNaissance
+				+ ", Centres d'intérêts : " + centresDintérêt;
 	}	
+	
+	
 }
