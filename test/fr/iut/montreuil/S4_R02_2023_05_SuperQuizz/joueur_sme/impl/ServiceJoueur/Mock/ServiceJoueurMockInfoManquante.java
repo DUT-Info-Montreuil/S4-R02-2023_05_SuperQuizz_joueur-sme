@@ -1,4 +1,4 @@
-package fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.impl;
+package fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.impl.ServiceJoueur.Mock;
 
 import java.util.Set;
 
