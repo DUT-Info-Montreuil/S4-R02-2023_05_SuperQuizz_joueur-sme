@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.entities.dto.JoueurDTO;
+import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.entities.dto.PartieJoueurDTO;
 
 public interface IServiceJoueur {
 
@@ -18,6 +19,16 @@ public interface IServiceJoueur {
 		// si suppression effectué : 0
 		// autre : 1
 		//exception infoManquantes
+
+	public double calculMoyennePartie () throws pasDePartieException;
+	
+	public double calculDureeMoyenne () throws pasDePartieException;
+	
+	public double convertitSecondesEnMinutes () throws pasDePartieException;
+	
+	public void ajouterPartieJoueurDTO (int score, int temps) throws IllegalArgumentException;
+	
+	public List<PartieJoueurDTO> partiesJouée();
 
 
 /*  

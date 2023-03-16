@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 
 import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.entities.dto.JoueurDTO;
+import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.impl.ServiceJoueur.Mock.ServiceJoueurMockInfoEronnee;
+import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.impl.ServiceJoueur.Mock.ServiceJoueurMockInfoManquante;
 import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.impl.ServiceJoueur.Mock.ServiceJoueurMockOk;
 import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.impl.ServiceJoueur.Mock.ServiceJoueurMockPseudoExistant;
 import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.modele.absentDeListeException;
@@ -28,6 +30,7 @@ class ServiceJoueurTest {
 		pseudoExistant = new ServiceJoueurMockPseudoExistant();
 		infoEronnee = new ServiceJoueurMockInfoEronnee();
 		System.out.println("Appel du test " + testInfo.getDisplayName());
+		
 	}
 
 	@Test
