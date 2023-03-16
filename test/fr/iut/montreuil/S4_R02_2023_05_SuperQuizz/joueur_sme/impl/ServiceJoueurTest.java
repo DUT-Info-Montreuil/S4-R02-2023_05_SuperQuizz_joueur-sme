@@ -30,6 +30,7 @@ class ServiceJoueurTest {
 		pseudoExistant = new ServiceJoueurMockPseudoExistant();
 		infoEronnee = new ServiceJoueurMockInfoEronnee();
 		System.out.println("Appel du test " + testInfo.getDisplayName());
+		
 	}
 
 	@Test
