@@ -13,7 +13,7 @@ import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.modele.pseudoExista
 public class ServiceJoueurImpl implements IServiceJoueur{
 
 	private Set<JoueurDTO> listeJoueurDTO;
-	private static ServiceJoueurImpl instance = new ServiceJoueurImpl();
+	private static final ServiceJoueurImpl instance = new ServiceJoueurImpl();
 	
 	private ServiceJoueurImpl() {
 		this.listeJoueurDTO = new TreeSet();
@@ -71,3 +71,15 @@ public class ServiceJoueurImpl implements IServiceJoueur{
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+

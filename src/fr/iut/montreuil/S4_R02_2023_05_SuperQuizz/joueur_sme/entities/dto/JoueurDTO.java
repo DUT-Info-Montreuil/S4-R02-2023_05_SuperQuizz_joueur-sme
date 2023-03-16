@@ -8,6 +8,8 @@ public class JoueurDTO {
 	private String pseudo;
 	private int annéeNaissance;
 	private String centresDintérêt;
+
+	
 	public JoueurDTO(String prénom, String pseudo, int annéeNaissance, String centresDintérêt) {
 		super();
 		this.prénom = prénom;
