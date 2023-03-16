@@ -23,7 +23,7 @@ public interface IServiceJoueur {
 	
 	public double calculDureeMoyenne () throws pasDePartieException;
 	
-	public double convertitSecondesEnMinutes () throws pasDePartieException;
+	public double convertitSecondesEnMinutes (int seconde);
 	
 	public void ajouterPartieJoueurDTO (int score, int temps) throws IllegalArgumentException;
 	
