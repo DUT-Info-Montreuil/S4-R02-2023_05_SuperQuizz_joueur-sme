@@ -49,7 +49,7 @@ public class ServiceJoueurMockInfoManquante implements IServiceJoueur {
 	}
 
 	@Override
-	public double convertitSecondesEnMinutes() throws pasDePartieException {
+	public double convertitSecondesEnMinutes (int seconde){
 		// TODO Auto-generated method stub
 		return 0;
 	}
