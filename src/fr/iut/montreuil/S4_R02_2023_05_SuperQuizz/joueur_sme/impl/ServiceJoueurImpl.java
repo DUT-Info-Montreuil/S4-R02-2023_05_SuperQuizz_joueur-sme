@@ -1,5 +1,6 @@
 package fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -16,10 +17,12 @@ import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.modele.pseudoExista
 public class ServiceJoueurImpl implements IServiceJoueur{
 
 	private Set<JoueurDTO> listeJoueurDTO;
+	private List<PartieJoueurDTO> parties;
 	private static ServiceJoueurImpl instance = new ServiceJoueurImpl();
 	
 	private ServiceJoueurImpl() {
 		this.listeJoueurDTO = new TreeSet();
+		parties = new ArrayList<PartieJoueurDTO>();
 	}
 	
 	public static ServiceJoueurImpl getInstance() {
@@ -75,32 +78,44 @@ public class ServiceJoueurImpl implements IServiceJoueur{
 
 	@Override
 	public double calculMoyennePartie() throws pasDePartieException {
-		// TODO Auto-generated method stub
-		return 0;
+		if(parties.isEmpty())
+			throw new pasDePartieException();
+		int somme = parties.stream()
+				.map(j -> j.getScore())
+				.reduce((x, y) -> x+y).get();
+		double res = somme/parties.size() + somme%parties.size();
+		return res;
 	}
 
 	@Override
 	public double calculDureeMoyenne() throws pasDePartieException {
-		// TODO Auto-generated method stub
-		return 0;
+		if(parties.isEmpty())
+			throw new pasDePartieException();
+				
+		return convertitSecondesEnMinutes( parties.stream()
+				.map(j -> j.getSeconde())
+				.reduce((x, y) -> x+y).
+				get() )
+				/parties.size();
 	}
 
 	@Override
-	public double convertitSecondesEnMinutes() throws pasDePartieException {
-		// TODO Auto-generated method stub
-		return 0;
+	public double convertitSecondesEnMinutes(int seconde) {
+		double res = seconde/60;
+		return res;
 	}
 
 	@Override
 	public void ajouterPartieJoueurDTO(int score, int temps) throws IllegalArgumentException {
-		// TODO Auto-generated method stub
+		if(0<score || score > 10 || 0<temps)
+			throw new IllegalArgumentException("Le score " + score + " ou le temps " + temps + " n'est pas valide");
+		parties.add(new PartieJoueurDTO(score, temps));
 		
 	}
 
 	@Override
 	public List<PartieJoueurDTO> partiesJouée() {
-		// TODO Auto-generated method stub
-		return null;
+		return parties;
 	}
 	
 }
