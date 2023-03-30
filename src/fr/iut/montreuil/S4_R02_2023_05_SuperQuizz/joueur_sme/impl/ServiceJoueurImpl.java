@@ -108,7 +108,7 @@ public class ServiceJoueurImpl implements IServiceJoueur{
 	
 	@Override
 	public void ajouterPartieJoueurDTO(int score, int temps) throws IllegalArgumentException {
-		if(0<score || score > 10 || 0<temps)
+		if(0<= score || score >= 10 || 0<temps)
 			throw new IllegalArgumentException("Le score " + score + " ou le temps " + temps + " n'est pas valide");
 		parties.add(new PartieJoueurDTO(score, temps));
 		
