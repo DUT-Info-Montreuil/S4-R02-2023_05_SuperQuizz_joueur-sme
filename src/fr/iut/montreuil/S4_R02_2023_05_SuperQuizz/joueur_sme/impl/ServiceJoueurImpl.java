@@ -104,7 +104,8 @@ public class ServiceJoueurImpl implements IServiceJoueur{
 		double res = seconde/60;
 		return res;
 	}
-
+	
+	
 	@Override
 	public void ajouterPartieJoueurDTO(int score, int temps) throws IllegalArgumentException {
 		if(0<score || score > 10 || 0<temps)
