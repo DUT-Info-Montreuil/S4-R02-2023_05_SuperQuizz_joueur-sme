@@ -29,8 +29,6 @@ public interface IServiceJoueur {
 	
 	public List<PartieJoueurDTO> partiesJouée();
 
-
-
 /*  
  * créer un objet PartieJoueurDTO
  *  - int score

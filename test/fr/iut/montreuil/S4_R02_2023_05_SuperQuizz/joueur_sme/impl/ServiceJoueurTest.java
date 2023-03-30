@@ -11,10 +11,12 @@ import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.entities.dto.Joueur
 import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.impl.ServiceJoueur.Mock.ServiceJoueurMockInfoEronnee;
 import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.impl.ServiceJoueur.Mock.ServiceJoueurMockInfoManquante;
 import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.impl.ServiceJoueur.Mock.ServiceJoueurMockOk;
+import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.impl.ServiceJoueur.Mock.ServiceJoueurMockPasDePartie;
 import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.impl.ServiceJoueur.Mock.ServiceJoueurMockPseudoExistant;
 import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.modele.absentDeListeException;
 import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.modele.fausseAnneeNaissanceException;
 import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.modele.infoManquanteException;
+import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.modele.pasDePartieException;
 import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.modele.pseudoExistantException;
 
 class ServiceJoueurTest {
@@ -23,12 +25,14 @@ class ServiceJoueurTest {
 	ServiceJoueurMockInfoManquante infoManquante;
 	ServiceJoueurMockPseudoExistant pseudoExistant;
 	ServiceJoueurMockInfoEronnee infoEronnee;
+	ServiceJoueurMockPasDePartie pasDePartie;
 	@BeforeEach
 	void setUp(TestInfo testInfo) throws Exception {
 		serviceJoueurMockOk = new ServiceJoueurMockOk();
 		infoManquante = new ServiceJoueurMockInfoManquante();
 		pseudoExistant = new ServiceJoueurMockPseudoExistant();
 		infoEronnee = new ServiceJoueurMockInfoEronnee();
+		pasDePartie = new ServiceJoueurMockPasDePartie();
 		System.out.println("Appel du test " + testInfo.getDisplayName());
 		
 	}
@@ -57,6 +61,24 @@ class ServiceJoueurTest {
 		//quand le pseudo entre n'est pas présent
 		assertThrows(absentDeListeException.class, ( () -> infoEronnee.supprimerJoueur(null)));
 	}
-	
-
+	@Test
+	void testCalculMoyennePartie () throws pasDePartieException {
+		assertThrows(pasDePartieException.class, (()-> pasDePartie.calculMoyennePartie()));
+		
+		assertEquals(7.5, serviceJoueurMockOk.calculMoyennePartie());		
+	}
+	@Test
+	void testCalculDureeMoyenne() throws pasDePartieException {
+		assertThrows(pasDePartieException.class, (()-> pasDePartie.calculDureeMoyenne()));
+		
+		assertEquals(15.0, serviceJoueurMockOk.calculDureeMoyenne());
+	}
+	@Test
+	void testConvertitSecondesEnMinutes() {
+		assertEquals(2, serviceJoueurMockOk.convertitSecondesEnMinutes(120));
+	}
+	@Test
+	void testAjouterPartieJoueurDTO() {
+		assertThrows(IllegalArgumentException.class, (()->infoEronnee.ajouterPartieJoueurDTO(5, -1)) );
+	}
 }

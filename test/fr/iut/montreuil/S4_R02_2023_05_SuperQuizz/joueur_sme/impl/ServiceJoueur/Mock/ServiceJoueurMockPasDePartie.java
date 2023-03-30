@@ -12,11 +12,7 @@ import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.modele.infoManquant
 import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.modele.pasDePartieException;
 import fr.iut.montreuil.S4_R02_2023_05_SuperQuizz.joueur_sme.modele.pseudoExistantException;
 
-public class ServiceJoueurMockInfoEronnee implements IServiceJoueur {
-
-	public ServiceJoueurMockInfoEronnee() {
-		// TODO Auto-generated constructor stub
-	}
+public class ServiceJoueurMockPasDePartie implements IServiceJoueur {
 
 	@Override
 	public Set<JoueurDTO> listerJoueur() {
@@ -27,36 +23,36 @@ public class ServiceJoueurMockInfoEronnee implements IServiceJoueur {
 	@Override
 	public JoueurDTO ajouterJoueur(String prénom, String pseudo, int annéeNaissance, String centresDintérêt)
 			throws pseudoExistantException, infoManquanteException, fausseAnneeNaissanceException {
-		throw new fausseAnneeNaissanceException();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public void supprimerJoueur(String pseudo) throws absentDeListeException, infoManquanteException {
-		throw new absentDeListeException();
-
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public double calculMoyennePartie() throws pasDePartieException {
-		// TODO Auto-generated method stub
-		return 0;
+		throw new pasDePartieException();
 	}
 
 	@Override
 	public double calculDureeMoyenne() throws pasDePartieException {
-		// TODO Auto-generated method stub
-		return 0;
+		throw new pasDePartieException();
 	}
 
 	@Override
-	public double convertitSecondesEnMinutes (int seconde){
+	public double convertitSecondesEnMinutes(int seconde) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public void ajouterPartieJoueurDTO(int score, int temps) throws IllegalArgumentException {
-		throw new IllegalArgumentException();	
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
