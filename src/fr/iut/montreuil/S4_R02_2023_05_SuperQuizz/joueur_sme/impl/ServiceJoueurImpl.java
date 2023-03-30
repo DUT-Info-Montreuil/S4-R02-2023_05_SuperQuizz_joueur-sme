@@ -118,5 +118,18 @@ public class ServiceJoueurImpl implements IServiceJoueur{
 	public List<PartieJoueurDTO> partiesJouée() {
 		return parties;
 	}
+
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
