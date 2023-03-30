@@ -86,12 +86,6 @@ public class ServiceJoueurImpl implements IServiceJoueur{
 	}
 
 	@Override
-	public double convertitSecondesEnMinutes() throws pasDePartieException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public void ajouterPartieJoueurDTO(int score, int temps) throws IllegalArgumentException {
 		// TODO Auto-generated method stub
 		
@@ -101,6 +95,12 @@ public class ServiceJoueurImpl implements IServiceJoueur{
 	public List<PartieJoueurDTO> partiesJouée() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public double convertitSecondesEnMinutes(int seconde) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 }

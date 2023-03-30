@@ -33,21 +33,20 @@ public class ServiceJoueurMockOk implements IServiceJoueur {
 	}
 
 	@Override
-	public double calculMoyennePartie() throws pasDePartieException {
-		// TODO Auto-generated method stub
-		return 0;
+	public double calculMoyennePartie() throws pasDePartieException {		
+		//Le joueur a fait deux partie dont les scores sont 5 et 10.
+				return (5.0+10.0)/2;
 	}
 
 	@Override
 	public double calculDureeMoyenne() throws pasDePartieException {
-		// TODO Auto-generated method stub
-		return 0;
+		//Le joueur a fait deux partie de 10 et 20 minutes
+				return (10.0+20.0)/2;
 	}
 
 	@Override
-	public double convertitSecondesEnMinutes(int seconde) {
-		// TODO Auto-generated method stub
-		return 0;
+	public double convertitSecondesEnMinutes(int seconde) {		
+		return seconde/60;
 	}
 
 	@Override
